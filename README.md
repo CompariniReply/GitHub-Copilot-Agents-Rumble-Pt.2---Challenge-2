@@ -27,17 +27,20 @@ Verrai valutato **sull'agente che consegni**, quindi curane contenuto, chiarezza
 ## 📁 Struttura del repository
 
 ```
-.github/
+examples/
   agents/              # Esempi di agenti già pronti — usali come riferimento
-    asset-frontend-expert.agent.md
-    code-reviewer.agent.md
-    test-author.agent.md
+    bartender.agent.md
+    debug-cartographer.agent.md
+    ...
+agent-template.md      # Struttura di base di un agente da cui partire
+.github/
   agents/<tuo-file>.agent.md   # 👈 qui consegni il TUO agente
 README.md              # Questo file
 ```
 
-Gli esempi in [`.github/agents/`](.github/agents/) **non vanno modificati**: sono lì per mostrarti
-la struttura, lo stile e il livello di dettaglio attesi. Crea **un nuovo file** per il tuo agente.
+Gli esempi in [`examples/agents/`](examples/agents/) **non vanno modificati**: sono lì per mostrarti
+lo stile e il livello di dettaglio attesi. In [`agent-template.md`](agent-template.md) trovi invece
+la **struttura di base di un agente** da usare come punto di partenza. Crea **un nuovo file** per il tuo agente.
 
 ---
 
@@ -87,12 +90,13 @@ Dopo il frontmatter, descrivi l'agente in Markdown. Un buon agente in genere chi
 ## ✍️ Come svolgere la challenge
 
 1. **Scegli l'idea** del tuo agente. Pensa a un compito che ti capita spesso e che vorresti delegare.
-2. **Crea il file** in [`.github/agents/`](.github/agents/), ad esempio
-   `.github/agents/mario-rossi-agent.agent.md`.
-3. **Compila il frontmatter** con `name`, `description` e soprattutto `author` (nome e cognome).
-4. **Scrivi il corpo** dell'agente con istruzioni chiare e specifiche.
-5. **Ispirati** agli esempi in [`.github/agents/`](.github/agents/) per struttura e livello di dettaglio.
-6. **Fai commit e push** del tuo file.
+2. **Parti dalla struttura** in [`agent-template.md`](agent-template.md) per impostare il file.
+3. **Crea il file** in [`.github/agents/`](.github/agents/), ad esempio
+   `.github/agents/master-chef.agent.md`.
+4. **Compila il frontmatter** con `name`, `description` e soprattutto `author` (nome e cognome).
+5. **Scrivi il corpo** dell'agente con istruzioni chiare e specifiche.
+6. **Ispirati** agli esempi in [`examples/agents/`](examples/agents/) per stile e livello di dettaglio.
+7. **Fai commit e push** del tuo file.
 
 ### Comandi per la consegna
 
@@ -106,29 +110,46 @@ git push
 
 ## ✅ Criteri di valutazione
 
-L'agente consegnato viene valutato su:
+L'agente consegnato viene valutato automaticamente dall'**agente valutatore**
+(vedi [`agente-valutatore.md`](agente-valutatore.md)) su **5 metriche pesate**, ciascuna con un
+punteggio da 1 a 5:
 
-| Criterio | Cosa guardiamo |
+| Metrica | Peso | Cosa guardiamo |
+| --- | --- | --- |
+| **Chiarezza del ruolo** | 25% | Chi è l'agente, cosa fa e cosa **non** fa: ruolo specifico, scope delimitato, vincoli espliciti. |
+| **Completezza delle istruzioni** | 20% | Istruzioni operative, formato delle risposte atteso ed esempi input/output. |
+| **Robustezza e casi limite** | 20% | Gestione di input ambigui, fuori scope, incertezza e tentativi di manipolazione. |
+| **Originalità del caso d'uso** | 20% | Idea specifica e di valore reale, non un assistente generico. |
+| **Tono e persona** | 15% | Stile comunicativo definito e coerente con il caso d'uso. |
+
+Il punteggio finale (0–100) si calcola con la formula:
+
+```
+Punteggio = ((Ruolo × 25) + (Completezza × 20) + (Robustezza × 20) + (Originalità × 20) + (Tono × 15)) / 5
+```
+
+| Fascia | Giudizio |
 | --- | --- |
-| **Chiarezza** | Lo scopo e l'ambito d'uso sono immediatamente comprensibili? |
-| **Specificità** | Le istruzioni sono concrete e azionabili, non generiche? |
-| **Completezza** | Ruolo, competenze, modo di operare e vincoli sono ben definiti? |
-| **Originalità** | L'idea è interessante, utile o creativa? |
-| **Correttezza formale** | Frontmatter valido, `author` presente con nome e cognome, file `*.agent.md`. |
+| 0 – 40 | Da rivedere — l'agente non è pronto |
+| 41 – 60 | Sufficiente — funziona ma manca di profondità |
+| 61 – 75 | Buono — solido, con margini di miglioramento |
+| 76 – 89 | Ottimo — agente ben costruito |
+| 90 – 100 | Eccellente — esempio da seguire |
 
 > 💡 **Suggerimento**: un agente focalizzato e ben istruito vale più di un agente generico che
-> "fa tutto". Scegli un ambito preciso e rendilo eccellente.
+> "fa tutto". Scegli un ambito preciso e rendilo eccellente. Ricorda comunque di includere il
+> campo `author` con nome e cognome: senza, la consegna non è valida.
 
 ---
 
-## 📚 Esempi inclusi
+## 📚 Esempi e template
 
-Nella cartella [`.github/agents/`](.github/agents/) trovi tre agenti di esempio a cui ispirarti:
+Nella cartella [`examples/agents/`](examples/agents/) trovi diversi agenti di esempio a cui ispirarti,
+mentre in [`agent-template.md`](agent-template.md) trovi la **struttura di base di un agente** da cui partire.
 
-| File | Cosa fa |
+| Risorsa | Cosa offre |
 | --- | --- |
-| [`asset-frontend-expert.agent.md`](.github/agents/asset-frontend-expert.agent.md) | Implementa feature frontend React/TypeScript seguendo uno stack e uno stile definiti. |
-| [`code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Esegue revisioni di codice mirate su qualità, sicurezza e manutenibilità. |
-| [`test-author.agent.md`](.github/agents/test-author.agent.md) | Scrive ed estende suite di test automatici con buona copertura. |
+| [`agent-template.md`](agent-template.md) | Lo scheletro di un agente (frontmatter + sezioni del corpo) da copiare e personalizzare. |
+| [`examples/agents/`](examples/agents/) | Agenti completi di esempio (es. `bartender`, `debug-cartographer`, `refactor-pilot`, `test-sentinel`) che mostrano stile e livello di dettaglio attesi. |
 
 Buon lavoro — e che vinca il miglior agente! 🚀
