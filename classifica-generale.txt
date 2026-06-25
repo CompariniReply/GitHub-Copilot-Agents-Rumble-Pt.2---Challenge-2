@@ -1,0 +1,28 @@
+========================================
+CLASSIFICA GENERALE — Challenge 1 + Challenge 2
+Data: 2026-06-25
+Partecipanti: 8
+Peso: 50% Challenge 1 (normalizzata) + 50% Challenge 2 — Spareggio: token crescenti
+========================================
+
+Pos | Partecipante        | R1 (C1+C2+C3) | N1    | Challenge2 (N2) | PUNTEGGIO GENERALE | Giudizio      | Token (spareggio)
+----|---------------------|----------------|-------|-----------------|--------------------|--------------|-----------------
+1   | Simone Scarcella    | 70/70          | 100.0 | 96.0            | 98.0/100           | Eccellente    | 373.058
+2   | Eleonora Cicalla    | 50/70          | 71.4  | 89.0            | 80.2/100           | Ottimo        | 170.127
+3   | Davide Soldati      | 30/70          | 42.9  | 93.0            | 68.0/100           | Buono         | 1.801.210
+4   | Paolo Vanzago       | 30/70          | 42.9  | 61.0            | 52.0/100           | Sufficiente   | N/D
+5   | Emanuele Papa       | 15/70          | 21.4  | 76.0            | 48.7/100           | Sufficiente   | 742.366
+6   | izabelalukaj        | 55/70          | 78.6  | 0.0             | 39.3/100           | Da rivedere   | 56.433
+7   | e.zovico            | 30/70          | 42.9  | 0.0             | 21.5/100           | Da rivedere   | 325.585
+8   | cvisinoni           | 15/70          | 21.4  | 0.0             | 10.7/100           | Da rivedere   | N/D
+
+NOTE
+----------------------------------------
+- izabelalukaj: Challenge 2 mancante — nessun file *.agent.md trovato associato a questo partecipante
+- e.zovico: Challenge 2 mancante — nessun file *.agent.md trovato associato a questo partecipante
+- cvisinoni: Challenge 2 mancante — nessun file *.agent.md trovato associato a questo partecipante
+- paolo.vanzago: Token "N/D" — perde vantaggio di spareggio
+- cvisinoni: Token "N/D" — perde vantaggio di spareggio
+- Branch duplicati nella tabella di input: DavideSoldati e e.zovico appaiono due volte — usata la prima occorrenza
+- Matching branch ↔ autore: SimoneScarcella → Simone Scarcella (fitness-coach.agent.md), eleonora_cicalla → Eleonora Cicalla (mastermind-ledger-solver.agent.md), DavideSoldati → Davide Soldati (performance-surgeon.agent.md), paolo.vanzago → Paolo Vanzago (tf-module-docs.agent.md, via metadata.name), emanuele_papa → Emanuele Papa (template-quartermaster.agent.md)
+- performance-surgeon.agent.md: il frontmatter inizia con "I---" invece di "---" (possibile errore di battitura), valutato comunque

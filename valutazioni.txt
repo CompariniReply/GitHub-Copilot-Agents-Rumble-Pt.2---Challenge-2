@@ -1,0 +1,146 @@
+========================================
+VALUTAZIONE CUSTOM AGENTS — Challenge 2
+Data: 2026-06-25
+Agenti valutati: 5
+========================================
+
+CLASSIFICA (punteggio per autore)
+----------------------------------------
+1. Simone Scarcella — Fitness Coach AI — 96/100 — Eccellente   (file: fitness-coach.agent.md)
+2. Davide Soldati — Performance Surgeon — 93/100 — Eccellente   (file: performance-surgeon.agent.md)
+3. Eleonora Cicalla — Mastermind Ledger Solver — 89/100 — Ottimo   (file: mastermind-ledger-solver.agent.md)
+4. Emanuele Papa — Template Quartermaster — 76/100 — Ottimo   (file: template-quartermaster.agent.md)
+5. Paolo Vanzago — Terraform Module Docs Agent — 61/100 — Buono   (file: tf-module-docs.agent.md)
+
+========================================
+DETTAGLIO VALUTAZIONI
+========================================
+
+### Simone Scarcella — Fitness Coach AI
+File: .github/agents/fitness-coach.agent.md
+Punteggio finale: 96/100 — Eccellente
+
+Metrica                         | Punt. | Pesati
+--------------------------------|-------|-------
+Chiarezza del ruolo (25%)       |   5   | 25/25
+Completezza istruzioni (20%)    |   5   | 20/20
+Robustezza (20%)                |   5   | 20/20
+Originalità (20%)               |   4   | 16/20
+Tono e persona (15%)            |   5   | 15/15
+TOTALE                          |       | 96/100
+
+Punti di forza:
+- Workflow operativo completo con ciclo profilazione-piano-tracking-followup-riprogrammazione
+- Gestione estremamente dettagliata di casi limite (infortuni, assenze, input ambigui) con tabelle decisionali
+- Esempi input/output concreti e variegati (5 scenari diversi)
+- Dashboard performance con metriche reali e formato strutturato
+- Tono ben calibrato con esempi di risposte motivazionali ancorate ai dati
+
+Suggerimenti prioritari:
+1. Aggiungere un esempio di output completo della dashboard per rendere ancora più chiaro il formato atteso
+2. Specificare limiti di memoria/contesto per il tracking storico (quante sessioni conservare)
+
+----------------------------------------
+
+### Davide Soldati — Performance Surgeon
+File: .github/agents/performance-surgeon.agent.md
+Punteggio finale: 93/100 — Eccellente
+
+Metrica                         | Punt. | Pesati
+--------------------------------|-------|-------
+Chiarezza del ruolo (25%)       |   5   | 25/25
+Completezza istruzioni (20%)    |   5   | 20/20
+Robustezza (20%)                |   5   | 20/20
+Originalità (20%)               |   4   | 16/20
+Tono e persona (15%)            |   4   | 12/15
+TOTALE                          |       | 93/100
+
+Punti di forza:
+- Eccellente gestione dei falsi positivi e dei casi in cui non serve ottimizzare
+- Struttura output a 5 sezioni ben definita e scannable
+- 4 esempi completi con scenari diversi (incluso il falso positivo)
+- Gestione esplicita di vincoli conflittuali con processo decisionale chiaro
+- Sezione "Quando Non Mi Serve" che dimostra maturità progettuale
+
+Suggerimenti prioritari:
+1. Il tono potrebbe essere più distintivo — aggiungere vincoli stilistici più specifici (lunghezza risposte, uso metafore, livello tecnico adattivo)
+2. Il frontmatter ha un errore di sintassi ("I---" invece di "---") che potrebbe causare problemi di parsing
+
+----------------------------------------
+
+### Eleonora Cicalla — Mastermind Ledger Solver
+File: .github/agents/mastermind-ledger-solver.agent.md
+Punteggio finale: 89/100 — Ottimo
+
+Metrica                         | Punt. | Pesati
+--------------------------------|-------|-------
+Chiarezza del ruolo (25%)       |   5   | 25/25
+Completezza istruzioni (20%)    |   4   | 16/20
+Robustezza (20%)                |   5   | 20/20
+Originalità (20%)               |   4   | 16/20
+Tono e persona (15%)            |   4   | 12/15
+TOTALE                          |       | 89/100
+
+Punti di forza:
+- 10 regole critiche obbligatorie estremamente rigorose e ben formulate
+- Procedura operativa in 8 step chiarissima
+- Vincoli di conteggio globale e divieto di over-inference dimostrano profonda conoscenza del dominio
+- Configurazione problema esplicita (lunghezza, alfabeto, duplicati, scoring)
+- Sezione "Cosa NON fai" precisa e coerente con le regole
+
+Suggerimenti prioritari:
+1. Gli esempi sono troppo generici — aggiungere almeno un esempio completo con dati numerici e output strutturato atteso
+2. Aggiungere indicazioni su come comunicare l'incertezza quando il set candidati è grande (es. >100 candidati)
+
+----------------------------------------
+
+### Emanuele Papa — Template Quartermaster
+File: .github/agents/template-quartermaster.agent.md
+Punteggio finale: 76/100 — Ottimo
+
+Metrica                         | Punt. | Pesati
+--------------------------------|-------|-------
+Chiarezza del ruolo (25%)       |   4   | 20/25
+Completezza istruzioni (20%)    |   4   | 16/20
+Robustezza (20%)                |   4   | 16/20
+Originalità (20%)               |   3   | 12/20
+Tono e persona (15%)            |   4   | 12/15
+TOTALE                          |       | 76/100
+
+Punti di forza:
+- Ottima sezione "Gestione input mancanti" con fallback sensati per ogni caso
+- Mappa commenti per linguaggio utile e pratica
+- Checklist prima di rispondere che garantisce qualità output
+- Analisi del contesto progetto in 5 step ben definiti
+- Tono "comico e brillante" coerente con il tema navale del nome
+
+Suggerimenti prioritari:
+1. Il caso d'uso (generazione template) è comune — differenziare di più rispetto a snippet/scaffold standard
+2. Gli esempi di output sono troppo sintetici — mostrare almeno un template completo generato
+
+----------------------------------------
+
+### Paolo Vanzago — Terraform Module Docs Agent
+File: .github/agents/tf-module-docs.agent.md
+Punteggio finale: 61/100 — Buono
+
+Metrica                         | Punt. | Pesati
+--------------------------------|-------|-------
+Chiarezza del ruolo (25%)       |   4   | 20/25
+Completezza istruzioni (20%)    |   3   | 12/20
+Robustezza (20%)                |   2   | 8/20
+Originalità (20%)               |   3   | 12/20
+Tono e persona (15%)            |   3   | 9/15
+TOTALE                          |       | 61/100
+
+Punti di forza:
+- Ruolo ben definito con scope chiaro (solo documentazione, non modifica codice)
+- Verifica coerenza variabili/risorse come valore aggiunto
+- Vincoli di sicurezza e scalabilità nelle raccomandazioni
+
+Suggerimenti prioritari:
+1. Aggiungere gestione esplicita dei casi limite (modulo vuoto, variabili non usate, risorse deprecate, input ambiguo)
+2. Gli esempi sono placeholder — fornire almeno un esempio completo con input reale e output README.md atteso
+3. Definire meglio il tono con vincoli stilistici specifici (lunghezza sezioni, livello tecnico, quando chiedere chiarimenti vs procedere)
+
+----------------------------------------
