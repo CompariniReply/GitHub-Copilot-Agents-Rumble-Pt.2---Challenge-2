@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GitHub Copilot Agents Rumble | Event Hub</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Reply internal event hub</p>
+        <h1>GitHub Copilot Agents Rumble Pt. 2</h1>
+      </div>
+      <nav class="quick-nav" aria-label="Sezioni event hub">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#planning">Planning</a>
+        <a href="#catering">Catering</a>
+        <a href="#runshow">Run-of-show</a>
+        <a href="#risks">Rischi</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="dashboard" class="dashboard-band">
+        <div class="dashboard-grid">
+          <article class="status-panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Stato evento</p>
+              <span id="riskBadge" class="badge">Rischio medio</span>
+            </div>
+            <h2 id="eventTitle">GitHub Copilot Agents Rumble Pt. 2</h2>
+            <dl class="status-list">
+              <div><dt>Data</dt><dd id="eventDate">Da confermare</dd></div>
+              <div><dt>Location</dt><dd id="eventLocation">Reply office + streaming</dd></div>
+              <div><dt>Partecipanti</dt><dd id="eventParticipants">80</dd></div>
+              <div><dt>Budget</dt><dd id="eventBudget">Medio</dd></div>
+              <div><dt>Owner</dt><dd id="eventOwner">Event owner Reply</dd></div>
+              <div><dt>Decisione critica</dt><dd id="eventDecision">Confermare sede e catering</dd></div>
+            </dl>
+          </article>
+
+          <article class="decision-panel">
+            <p class="eyebrow">Prossime priorita</p>
+            <div id="priorityList" class="priority-list"></div>
+          </article>
+
+          <article class="metric-panel">
+            <p class="eyebrow">Readiness</p>
+            <div class="readiness-ring" aria-label="Percentuale readiness">
+              <span id="readinessValue">0%</span>
+            </div>
+            <p id="readinessLabel">Calcolo in corso</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="planning" class="content-grid">
+        <article class="work-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Brief modificabile</p>
+              <h2>Requisiti e assunzioni</h2>
+            </div>
+            <div class="button-row">
+              <button id="saveButton" class="primary-button" type="button">Salva stato</button>
+              <button id="printButton" class="secondary-button" type="button">Stampa</button>
+              <button id="exportButton" class="secondary-button" type="button">Esporta JSON</button>
+              <button id="resetButton" class="ghost-button" type="button">Ripristina demo</button>
+            </div>
+          </div>
+          <form id="briefForm" class="brief-form">
+            <label>Titolo evento<input name="title" type="text"></label>
+            <label>Data<input name="date" type="text"></label>
+            <label>Location<input name="location" type="text"></label>
+            <label>Partecipanti<input name="participants" type="number" min="1"></label>
+            <label>Budget<input name="budget" type="text"></label>
+            <label>Owner<input name="owner" type="text"></label>
+            <label>Tono<select name="tone"><option>Energetico e professionale</option><option>Formale</option><option>Informale</option><option>Celebrativo</option><option>Training</option></select></label>
+            <label>Rischio<select name="risk"><option>Basso</option><option>Medio</option><option>Alto</option></select></label>
+            <label class="full-field">Decisione critica<input name="criticalDecision" type="text"></label>
+            <label class="full-field">Assunzioni<textarea name="assumptions" rows="4"></textarea></label>
+          </form>
+          <div id="missingData" class="alert-list"></div>
+        </article>
+
+        <article class="work-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Agenda</p>
+              <h2>Blocchi operativi</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="agenda">Aggiungi slot</button>
+          </div>
+          <div id="agendaTable" class="table-wrap"></div>
+        </article>
+
+        <article class="work-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Checklist</p>
+              <h2>Azioni aperte</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="tasks">Aggiungi azione</button>
+          </div>
+          <div class="filters">
+            <label>Stato<select id="statusFilter"><option value="all">Tutti</option><option>Da fare</option><option>In corso</option><option>Fatto</option><option>Bloccato</option></select></label>
+            <label>Owner<input id="ownerFilter" type="search" placeholder="Filtra owner"></label>
+            <label>Area<input id="areaFilter" type="search" placeholder="Filtra area"></label>
+          </div>
+          <div id="taskTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section id="catering" class="content-grid">
+        <article class="work-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Food experience</p>
+              <h2>Catering planner</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="catering">Aggiungi momento food</button>
+          </div>
+          <div class="summary-strip" id="cateringSummary"></div>
+          <div id="cateringTable" class="table-wrap"></div>
+        </article>
+
+        <article class="work-panel">
+          <p class="eyebrow">Budget planner</p>
+          <h2>Ripartizione stimata</h2>
+          <div id="budgetBreakdown" class="budget-list"></div>
+        </article>
+
+        <article class="work-panel">
+          <p class="eyebrow">Allergeni</p>
+          <h2>Controlli obbligatori</h2>
+          <ul class="check-list">
+            <li>Etichette allergeni su ogni isola buffet.</li>
+            <li>Opzioni gluten-free servite separate e confermate dal fornitore.</li>
+            <li>Lista allergie anonima, visibile solo a catering lead e referente onsite.</li>
+            <li>Fallback food non contaminato pronto prima dell'apertura lunch.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="work-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Vendor board</p>
+              <h2>Fornitori e azioni</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="vendors">Aggiungi fornitore</button>
+          </div>
+          <div id="vendorTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section id="runshow" class="content-grid">
+        <article class="work-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Giorno evento</p>
+              <h2>Run-of-show</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="runshow">Aggiungi riga</button>
+          </div>
+          <div id="runshowTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section id="risks" class="content-grid">
+        <article class="work-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Risk register</p>
+              <h2>Rischi, segnali e fallback</h2>
+            </div>
+            <button class="secondary-button" type="button" data-add="risks">Aggiungi rischio</button>
+          </div>
+          <div id="riskTable" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="work-panel wide">
+          <p class="eyebrow">Communication kit</p>
+          <h2>Messaggi pronti</h2>
+          <div id="communicationKit" class="message-grid"></div>
+        </article>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
