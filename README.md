@@ -110,31 +110,17 @@ git push
 
 ## ✅ Criteri di valutazione
 
-L'agente consegnato viene valutato automaticamente dall'**agente valutatore**
-(vedi [`agente-valutatore.md`](agente-valutatore.md)) su **5 metriche pesate**, ciascuna con un
-punteggio da 1 a 5:
+L'agente consegnato viene valutato in modo complessivo guardando alla sua qualità reale.
+In linea di massima vengono considerati aspetti come:
 
-| Metrica | Peso | Cosa guardiamo |
-| --- | --- | --- |
-| **Chiarezza del ruolo** | 25% | Chi è l'agente, cosa fa e cosa **non** fa: ruolo specifico, scope delimitato, vincoli espliciti. |
-| **Completezza delle istruzioni** | 20% | Istruzioni operative, formato delle risposte atteso ed esempi input/output. |
-| **Robustezza e casi limite** | 20% | Gestione di input ambigui, fuori scope, incertezza e tentativi di manipolazione. |
-| **Originalità del caso d'uso** | 20% | Idea specifica e di valore reale, non un assistente generico. |
-| **Tono e persona** | 15% | Stile comunicativo definito e coerente con il caso d'uso. |
+- **Chiarezza del ruolo** — è chiaro chi è l'agente, cosa fa e cosa non fa?
+- **Completezza delle istruzioni** — le indicazioni sono concrete e sufficienti a guidarne il comportamento?
+- **Robustezza** — l'agente gestisce input ambigui, fuori scope o situazioni di incertezza?
+- **Originalità** — l'idea risolve un problema reale ed evita di essere un assistente generico?
+- **Tono e persona** — lo stile comunicativo è definito e coerente con il caso d'uso?
 
-Il punteggio finale (0–100) si calcola con la formula:
-
-```
-Punteggio = ((Ruolo × 25) + (Completezza × 20) + (Robustezza × 20) + (Originalità × 20) + (Tono × 15)) / 5
-```
-
-| Fascia | Giudizio |
-| --- | --- |
-| 0 – 40 | Da rivedere — l'agente non è pronto |
-| 41 – 60 | Sufficiente — funziona ma manca di profondità |
-| 61 – 75 | Buono — solido, con margini di miglioramento |
-| 76 – 89 | Ottimo — agente ben costruito |
-| 90 – 100 | Eccellente — esempio da seguire |
+> ⚠️ I pesi esatti e il metodo di calcolo del punteggio non vengono resi noti: l'obiettivo è
+> premiare agenti genuinamente ben fatti, non agenti costruiti per "ottimizzare" una checklist.
 
 > 💡 **Suggerimento**: un agente focalizzato e ben istruito vale più di un agente generico che
 > "fa tutto". Scegli un ambito preciso e rendilo eccellente. Ricorda comunque di includere il
